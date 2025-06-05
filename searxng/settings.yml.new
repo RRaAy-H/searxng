@@ -77,12 +77,11 @@ search:
   # formats: [html, csv, json, rss]
   formats:
     - html
-    - json
 
 server:
   # Is overwritten by ${SEARXNG_PORT} and ${SEARXNG_BIND_ADDRESS}
-  port: 8080
-  bind_address: "0.0.0.0"
+  port: 8888
+  bind_address: "127.0.0.1"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_BASE_URL}.
   base_url: false  # "http://example.com/location"
@@ -250,30 +249,30 @@ plugins:
 
 
 # Configuration of the "Hostnames plugin":
-
-hostnames:
-  replace:
-    '(.*\.)?youtube\.com$': 'yt.example.com'
-    '(.*\.)?youtu\.be$': 'yt.example.com'
-    '(.*\.)?reddit\.com$': 'teddit.example.com'
-    '(.*\.)?redd\.it$': 'teddit.example.com'
-    '(www\.)?twitter\.com$': 'nitter.example.com'
-  remove:
-    - '(.*\.)?facebook.com$'
-  low_priority:
-    - '(.*\.)?google(\..*)?$'
-  high_priority:
-    - '(.*\.)?wikipedia.org$'
-
-Alternatively you can use external files for configuring the "Hostnames plugin":
-
-hostnames:
- replace: 'rewrite-hosts.yml'
-
-Content of 'rewrite-hosts.yml' (place the file in the same directory as 'settings.yml'):
-'(.*\.)?youtube\.com$': 'yt.example.com'
-'(.*\.)?youtu\.be$': 'yt.example.com'
-
+#
+# hostnames:
+#   replace:
+#     '(.*\.)?youtube\.com$': 'yt.example.com'
+#     '(.*\.)?youtu\.be$': 'yt.example.com'
+#     '(.*\.)?reddit\.com$': 'teddit.example.com'
+#     '(.*\.)?redd\.it$': 'teddit.example.com'
+#     '(www\.)?twitter\.com$': 'nitter.example.com'
+#   remove:
+#     - '(.*\.)?facebook.com$'
+#   low_priority:
+#     - '(.*\.)?google(\..*)?$'
+#   high_priority:
+#     - '(.*\.)?wikipedia.org$'
+#
+# Alternatively you can use external files for configuring the "Hostnames plugin":
+#
+# hostnames:
+#  replace: 'rewrite-hosts.yml'
+#
+# Content of 'rewrite-hosts.yml' (place the file in the same directory as 'settings.yml'):
+# '(.*\.)?youtube\.com$': 'yt.example.com'
+# '(.*\.)?youtu\.be$': 'yt.example.com'
+#
 
 checker:
   # disable checker when in debug mode

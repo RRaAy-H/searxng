@@ -1,19 +1,14 @@
 contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   repositories:
-    - https://mirrors.edge.kernel.org/alpine/edge/main
-    - https://mirrors.edge.kernel.org/alpine/edge/community
+    - https://packages.wolfi.dev/os
   packages:
-    - alpine-base
+    - wolfi-base
     - build-base
-    - python3-dev
+    - python-3.13-dev
     - py3-pip
     - brotli
-    # lxml (armv7)
-    - libxml2-dev
-    - libxslt-dev
-    - zlib-dev
-    # uwsgi
-    - libffi-dev
 
 entrypoint:
   command: /bin/sh -l
@@ -28,4 +23,3 @@ environment:
 archs:
   - x86_64
   - aarch64
-  - armv7

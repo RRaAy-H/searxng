@@ -2,7 +2,7 @@ general:
   # Debug mode, only for development. Is overwritten by ${SEARXNG_DEBUG}
   debug: false
   # displayed name
-  instance_name: "SearXNG"
+  instance_name: "my-instance"
   # For example: https://example.com/privacy
   privacypolicy_url: false
   # use true to use your own donation page written in searx/info/en/donate.md
@@ -85,7 +85,7 @@ server:
   bind_address: "0.0.0.0"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_BASE_URL}.
-  base_url: false  # "http://example.com/location"
+  base_url: http://localhost:/  # "http://example.com/location"
   # rate limit the number of request on the instance, block some bots.
   # Is overwritten by ${SEARXNG_LIMITER}
   limiter: false
@@ -96,7 +96,7 @@ server:
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
 
-  secret_key: "ultrasecretkey"  # Is overwritten by ${SEARXNG_SECRET}
+  secret_key: "PZlXpkBttJ4Aiifilc6XQc1nN1PtqWyl"  # Is overwritten by ${SEARXNG_SECRET}
   # Proxy image results through SearXNG. Is overwritten by ${SEARXNG_IMAGE_PROXY}
   image_proxy: false
   # 1.0 and 1.1 are supported
@@ -250,30 +250,30 @@ plugins:
 
 
 # Configuration of the "Hostnames plugin":
-
-hostnames:
-  replace:
-    '(.*\.)?youtube\.com$': 'yt.example.com'
-    '(.*\.)?youtu\.be$': 'yt.example.com'
-    '(.*\.)?reddit\.com$': 'teddit.example.com'
-    '(.*\.)?redd\.it$': 'teddit.example.com'
-    '(www\.)?twitter\.com$': 'nitter.example.com'
-  remove:
-    - '(.*\.)?facebook.com$'
-  low_priority:
-    - '(.*\.)?google(\..*)?$'
-  high_priority:
-    - '(.*\.)?wikipedia.org$'
-
-Alternatively you can use external files for configuring the "Hostnames plugin":
-
-hostnames:
- replace: 'rewrite-hosts.yml'
-
-Content of 'rewrite-hosts.yml' (place the file in the same directory as 'settings.yml'):
-'(.*\.)?youtube\.com$': 'yt.example.com'
-'(.*\.)?youtu\.be$': 'yt.example.com'
-
+#
+# hostnames:
+#   replace:
+#     '(.*\.)?youtube\.com$': 'yt.example.com'
+#     '(.*\.)?youtu\.be$': 'yt.example.com'
+#     '(.*\.)?reddit\.com$': 'teddit.example.com'
+#     '(.*\.)?redd\.it$': 'teddit.example.com'
+#     '(www\.)?twitter\.com$': 'nitter.example.com'
+#   remove:
+#     - '(.*\.)?facebook.com$'
+#   low_priority:
+#     - '(.*\.)?google(\..*)?$'
+#   high_priority:
+#     - '(.*\.)?wikipedia.org$'
+#
+# Alternatively you can use external files for configuring the "Hostnames plugin":
+#
+# hostnames:
+#  replace: 'rewrite-hosts.yml'
+#
+# Content of 'rewrite-hosts.yml' (place the file in the same directory as 'settings.yml'):
+# '(.*\.)?youtube\.com$': 'yt.example.com'
+# '(.*\.)?youtu\.be$': 'yt.example.com'
+#
 
 checker:
   # disable checker when in debug mode

@@ -54,7 +54,7 @@ container.build() {
         platform="linux/$arch"
         ;;
     "ARMV7" | "armhf" | "armv7l" | "armv7")
-        dockerfile="Dockerfile"
+        dockerfile="legacy/Dockerfile"
         arch="arm"
         variant="v7"
         platform="linux/$arch/$variant"

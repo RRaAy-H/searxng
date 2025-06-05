@@ -1,17 +1,16 @@
 contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   repositories:
-    - https://mirrors.edge.kernel.org/alpine/edge/main
+    - https://packages.wolfi.dev/os
   packages:
-    - alpine-baselayout
+    - wolfi-baselayout
     - ca-certificates-bundle
     - busybox
-    - python3
+    - python-3.13
     # healthcheck
     - wget
-    # lxml (armv7)
-    - libxslt
     # uwsgi
-    - libxml2
     - mailcap
 
 entrypoint:
@@ -41,7 +40,7 @@ paths:
     type: directory
     uid: 977
     gid: 977
-    permissions: 0o555
+    permissions: 0o755
 
   # Config volume
   - path: /etc/searxng/
@@ -60,4 +59,3 @@ paths:
 archs:
   - x86_64
   - aarch64
-  - armv7
